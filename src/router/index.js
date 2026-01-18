@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import BreedView from '../views/BreedView.vue'
+
 import Home from '../views/Home.vue'
 
 const router = createRouter({
@@ -6,9 +8,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name : 'Home',
-      component: Home
-    }
+      name: 'Home',
+      component: Home,
+    },
+    {
+      path: '/breed',
+      name: 'BreedView',
+      component: BreedView,
+    },
   ],
 })
 
