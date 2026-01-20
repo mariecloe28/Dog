@@ -9,8 +9,9 @@ import { getBreedsPage } from '@/assets/api/calls.js'
 import { onMounted, ref } from 'vue'
 // list afficher en array
 const breedsList = ref([])
+const pageNumber = ref(1)
 onMounted(async () => {
-  breedsList.value = await getBreedsPage(1)
+  breedsList.value = await getBreedsPage(pageNumber)
 })
 </script>
 
