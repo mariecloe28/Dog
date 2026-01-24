@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <div v-for="breed in breedsList" :key="breed">{{ breed.attributes.name }}</div>
+  <div class="list-group" data-bs-theme="dark">
+      <router-link 
+      v-for="breed in breedsList" 
+      :key="breed.id":to="{name: 'BreedView', params: { breedId: breed.id }}" class="list-group-item list-group-item-action list-group-item-info"
+      >
+        {{ breed.attributes.name }}
+      </router-link>
   </div>
 </template>
 
@@ -11,8 +16,11 @@ import { onMounted, ref } from 'vue'
 const breedsList = ref([])
 const pageNumber = ref(1)
 onMounted(async () => {
-  breedsList.value = await getBreedsPage(pageNumber)
+  breedsList.value = await getBreedsPage(pageNumber.value)
+  
 })
 </script>
 
-<style></style>
+<style>
+
+</style>
