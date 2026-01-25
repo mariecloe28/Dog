@@ -10,4 +10,6 @@
 ## Liste des races
 
  - [x] Page listing des races avec lien vers de la page d'une race.
- - [ ] boutons "voir plus"
+ - [x] Boutons "voir plus".
+ - [ ] Disable le bouton "show more" quand arrivé à la fin.
+ - [ ] Disable le bouton “show less” quand à la première page.

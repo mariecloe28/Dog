@@ -8,7 +8,6 @@ export const getBreedsPage = async (pageNumber) => {
   try {
     const res = await fetch(`${baseUrl}breeds?page[size]=${pageSize}&page[number]=${pageNumber}`)
     const json = await res.json()
-
     for (let breed of json.data) {
       breeds.push(breed)
     }
