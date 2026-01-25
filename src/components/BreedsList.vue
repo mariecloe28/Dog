@@ -1,7 +1,12 @@
 <template>
   <div class="list-group">
     <div>
-      <button @click="loadNewPage(false)" type="button" class="btn btn-dark btn-outline-info">
+      <button
+        @click="loadNewPage(false)"
+        type="button"
+        class="btn btn-dark btn-outline-info"
+        :disabled="firstPage"
+      >
         Show less
       </button>
     </div>
@@ -14,7 +19,12 @@
       {{ breed.attributes.name }}
     </router-link>
     <div>
-      <button @click="loadNewPage(true)" type="button" class="btn btn-dark btn-outline-info">
+      <button
+        @click="loadNewPage(true)"
+        type="button"
+        class="btn btn-dark btn-outline-info"
+        :disabled="lastPage"
+      >
         Show more
       </button>
     </div>
@@ -23,22 +33,23 @@
 
 <script setup>
 import { getBreedsPage } from '@/assets/api/calls.js'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 // list afficher en array
 const breedsList = ref([])
-let pageNumber = 1
+let pageNumber = ref(1)
 
 const loadNewPage = async (isAscending) => {
   if (isAscending) {
-    pageNumber = pageNumber + 1
+    pageNumber.value = pageNumber.value + 1
   } else {
-    pageNumber = pageNumber - 1
+    pageNumber.value = pageNumber.value - 1
   }
-  breedsList.value = await getBreedsPage(pageNumber)
+  breedsList.value = await getBreedsPage(pageNumber.value)
 }
-
+const firstPage = computed (() => pageNumber.value === 1)
+const lastPage = computed (() => breedsList.value.length < 9)
 onMounted(async () => {
-  breedsList.value = await getBreedsPage(pageNumber)
+  breedsList.value = await getBreedsPage(pageNumber.value)
 })
 </script>
 

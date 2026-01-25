@@ -11,5 +11,5 @@
 
  - [x] Page listing des races avec lien vers de la page d'une race.
  - [x] Boutons "voir plus".
- - [ ] Disable le bouton "show more" quand arrivé à la fin.
- - [ ] Disable le bouton “show less” quand à la première page.
+ - [x] Disable le bouton "show more" quand arrivé à la fin.
+ - [x] Disable le bouton “show less” quand à la première page.
