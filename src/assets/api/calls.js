@@ -29,3 +29,19 @@ export const getBreedAttributesById = async (breedId) => {
     error = err.message
   }
 }
+
+export const randomFacts = async (limit) => {
+  try {
+    const res = await fetch (`${baseUrl}facts?limit=${limit}`)
+    const json = await res.json()
+    let data = json.data
+    let facts = []
+    for (let fact of data) {
+      facts.push(fact.attributes.body)
+    }
+    console.log(facts)
+    return facts
+  }catch (err){
+    error = err.message
+  }
+}

@@ -8,10 +8,7 @@
       <h2>Welcome !</h2>
       <div>
         <button type="button" class="btn btn-dark btn-outline-info">
-          Want to know a random fact about dog ? Click Here!
-        </button>
-        <button type="button" class="btn btn-dark btn-outline-info">
-          Want to see info about a breed? Click Here!
+          <router-link :to="{name:'RandomFacts'}"> Want to know a random fact about dog ? Click Here! </router-link>
         </button>
       </div>
     </div>
@@ -20,7 +17,13 @@
 
 <script setup>
 import BreedsList from '@/components/BreedsList.vue'
-// doit mettre breed list.
+import RandomFacts from '@/components/RandomFacts.vue'
+import { onMounted } from 'vue'
+import { randomFacts } from '@/assets/api/calls.js'
+
+onMounted(() => {
+  randomFacts(5)
+})
 </script>
 
 <style scoped>
