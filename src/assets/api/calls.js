@@ -3,7 +3,6 @@ import { baseUrl, error, pageSize } from './settings.js'
 export const getBreedsPage = async (pageNumber) => {
   //pageSize = 10 // nb d'éléments par page
   //pageNumber = 1 // numéro de la page
-  console.log('Fetching breeds page:', pageNumber)
   let breeds = []
   try {
     const res = await fetch(`${baseUrl}breeds?page[size]=${pageSize}&page[number]=${pageNumber}`)
@@ -39,7 +38,6 @@ export const randomFacts = async (limit) => {
     for (let fact of data) {
       facts.push(fact.attributes.body)
     }
-    console.log(facts)
     return facts
   }catch (err){
     error = err.message

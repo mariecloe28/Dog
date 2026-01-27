@@ -6,11 +6,8 @@
     <div class=".container right-box">
       <h1>The dogs facts !</h1>
       <h2>Welcome !</h2>
-      <div>
-        <button type="button" class="btn btn-dark btn-outline-info">
-          <router-link :to="{name:'RandomFacts'}"> Want to know a random fact about dog ? Click Here! </router-link>
-        </button>
-      </div>
+      <RandomFacts />
+
     </div>
   </div>
 </template>
@@ -22,7 +19,7 @@ import { onMounted } from 'vue'
 import { randomFacts } from '@/assets/api/calls.js'
 
 onMounted(() => {
-  randomFacts(5)
+  randomFacts(1)
 })
 </script>
 
