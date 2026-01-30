@@ -7,7 +7,6 @@
       <h1>The dogs facts !</h1>
       <h2>Welcome !</h2>
       <RandomFacts />
-
     </div>
   </div>
 </template>
@@ -15,15 +14,9 @@
 <script setup>
 import BreedsList from '@/components/BreedsList.vue'
 import RandomFacts from '@/components/RandomFacts.vue'
-import { onMounted } from 'vue'
-import { randomFacts } from '@/assets/api/calls.js'
-
-onMounted(() => {
-  randomFacts(1)
-})
 </script>
 
-<style scoped>
+<style>
 .core-layout {
   display: flex;
   flex-direction: row;
@@ -36,5 +29,15 @@ onMounted(() => {
 }
 .right-box {
   width: 85%;
+}
+h1 {
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  padding: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-family: Roboto, sans-serif;
 }
 </style>

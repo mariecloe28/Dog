@@ -46,11 +46,17 @@ const loadNewPage = async (isAscending) => {
   }
   breedsList.value = await getBreedsPage(pageNumber.value)
 }
-const firstPage = computed (() => pageNumber.value === 1)
-const lastPage = computed (() => breedsList.value.length < 9)
+const firstPage = computed(() => pageNumber.value === 1)
+const lastPage = computed(() => breedsList.value.length < 9)
 onMounted(async () => {
   breedsList.value = await getBreedsPage(pageNumber.value)
 })
 </script>
 
-<style></style>
+<style>
+.list-group {
+  padding-top: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+</style>
