@@ -1,11 +1,13 @@
-import { baseUrl, error, pageSize } from './settings.js'
+import { baseUrl, error, maxPageSize, pageSize } from './settings.js'
 
-export const getBreedsPage = async (pageNumber) => {
+export const getBreedsPage = async (pageNumber, numberOfElement = pageSize) => {
   //pageSize = 10 // nb d'éléments par page
   //pageNumber = 1 // numéro de la page
   let breeds = []
   try {
-    const res = await fetch(`${baseUrl}breeds?page[size]=${pageSize}&page[number]=${pageNumber}`)
+    const res = await fetch(
+      `${baseUrl}breeds?page[size]=${numberOfElement}&page[number]=${pageNumber}`,
+    )
     const json = await res.json()
     for (let breed of json.data) {
       breeds.push(breed)
@@ -15,6 +17,18 @@ export const getBreedsPage = async (pageNumber) => {
   } catch (err) {
     error = err.message
   }
+}
+
+export const getAllBreedsName = async () => {
+  let breeds = []
+  let page = 0
+  let buffer = []
+  while (buffer.length !== 0 || page === 0) {
+    buffer = await getBreedsPage(page, maxPageSize)
+    breeds = breeds.concat(buffer)
+    page++
+  }
+  return breeds
 }
 
 export const getBreedAttributesById = async (breedId) => {
