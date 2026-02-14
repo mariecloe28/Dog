@@ -1,4 +1,6 @@
-import { baseUrl, error, maxPageSize, pageSize } from './settings.js'
+import { baseUrl, maxPageSize, pageSize } from './settings.js'
+
+export let error = null
 
 export const getBreedsPage = async (pageNumber, numberOfElement = pageSize) => {
   //pageSize = 10 // nb d'éléments par page

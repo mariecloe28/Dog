@@ -1,5 +1,5 @@
 // Import all of Bootstrap’s CSS
-@import "bootstrap/scss/bootstrap";
+@use "bootstrap/scss/bootstrap";
 
 body {
   background-color: rgba(171, 203, 212, 0.93);

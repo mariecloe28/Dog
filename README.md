@@ -3,8 +3,8 @@
 ## Random facts & Autres
 
 - [x] Page de facts -> choix du nb de facts affiché.
-- [ ] Nav bar : (Bonus) Bar de recherche de race avec auto comp.
-- [ ] Bouton Home sur page d'une race de chien. 
+- [x] Nav bar : (Bonus) Bar de recherche de race avec auto comp.
+- [x] Bouton Home sur page d'une race de chien.
 - [ ] Mettre du CSS sur la page d'une race de chien (c'est très laid la)
 - [ ] Essayer d'arranger le title de la page Home
 

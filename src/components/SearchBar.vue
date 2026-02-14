@@ -5,9 +5,15 @@
       <button class="btn btn-outline-info" type="submit">Search</button>
     </form>
     <ul v-if="search && breedResults.length" class="list-group">
-      <li v-for="breed in breedResults" :key="breed.id" class="list-group-item">
+      <router-link
+        v-for="breed in breedResults"
+        :key="breed.id"
+        :to="{ name: 'BreedView', params: { breedId: breed.id } }"
+        class="list-group-item list-group-item-action"
+        @click="search = ''"
+      >
         {{ breed.attributes.name }}
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -15,7 +21,7 @@
 import { getAllBreedsName } from '@/assets/api/calls.js'
 import { computed, onMounted, ref } from 'vue'
 
-const breedsList = ref(null)
+const breedsList = ref([])
 const search = ref('')
 const breedResults = computed(() => {
   console.log(breedsList.value)
@@ -32,8 +38,6 @@ onMounted(async () => {
   breedsList.value = await getAllBreedsName()
   //console.log(breedsList.value.map(breed => breed.attributes.name))
 })
-
-// reste à faire : quand je clique sur un résultat, je veux que ça m'amène à la page de ce breed (il faut que je fasse une route pour ça) et que le search se vide.
 </script>
 
 <style scoped>
